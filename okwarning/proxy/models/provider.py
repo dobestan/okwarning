@@ -31,3 +31,11 @@ class Provider(models.Model):
 
     def get_absolute_url(self):
         return self.homepage
+
+    def run_speed_test(self):
+        import requests
+
+        response = requests.get(self.homepage)
+        self.speed_set.create(
+            elapsed_time=response.elapsed.total_seconds(),
+        )
