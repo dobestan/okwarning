@@ -10,7 +10,7 @@ clean:
 
 # target: migrate - Migrate all django applications considering app dependencies
 migrate:
-	python okwarning/manage.py makemigrations
+	python okwarning/manage.py makemigrations proxy
 	python okwarning/manage.py migrate
 
 
