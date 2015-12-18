@@ -7,8 +7,6 @@ class ProviderManager(models.Manager):
 
 class Provider(models.Model):
 
-    objects = ProviderManager()
-
     name = models.CharField(
         max_length=64,
         unique=True,
@@ -22,6 +20,14 @@ class Provider(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, )
     updated_at = models.DateTimeField(auto_now=True, )
 
+    objects = ProviderManager()
+
     class Meta:
         verbose_name = '프록시 서비스 제공자'
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return self.homepage

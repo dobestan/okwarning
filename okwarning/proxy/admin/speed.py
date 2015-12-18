@@ -1,30 +1,33 @@
 from django.contrib import admin
 
-from proxy.models import Provider
+from proxy.models import Speed
 
 
-@admin.register(Provider)
-class ProviderModelAdmin(admin.ModelAdmin):
+@admin.register(Speed)
+class SpeedModelAdmin(admin.ModelAdmin):
     list_display = admin.ModelAdmin.list_display + (
-        'name',
-        'homepage',
+        'provider',
+        'elapsed_time',
 
         'created_at',
         'updated_at',
     )
 
     list_filter = admin.ModelAdmin.list_filter + (
+        'provider',
     )
 
     inlines = (
     )
 
     search_fields = (
-        'name',
-        'homepage',
+        'provider',
     )
 
     readonly_fields = (
+        'provider',
+        'elapsed_time',
+
         'created_at',
         'updated_at',
     )
