@@ -26,6 +26,9 @@ class Provider(models.Model):
         verbose_name = '프록시 서비스 제공자'
         verbose_name_plural = verbose_name
 
+        ordering = ['name', ]
+        get_latest_by = 'created_at'
+
     def __str__(self):
         return self.name
 

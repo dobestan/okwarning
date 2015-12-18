@@ -28,6 +28,9 @@ class Speed(models.Model):
         verbose_name = '프록시 서비스 제공자 속도측정'
         verbose_name_plural = verbose_name
 
+        ordering = ['-created_at', ]
+        get_latest_by = 'created_at'
+
     def __str__(self):
         return "Elapsed {elapsed_time} seconds on {provider_name} at {created_at}".format(
             elapsed_time=self.elapsed_time,
