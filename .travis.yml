@@ -1,0 +1,19 @@
+language: python
+python:
+- '3.5'
+addons:
+  postgresql: '9.4'
+install:
+- pip install -r requirements.txt
+- pip install -r requirements/development.txt
+- pip install coveralls
+before_script:
+- psql -c 'CREATE DATABASE okwarning;' -U postgres
+script:
+- make migrate
+- make test
+after_success:
+- coveralls
+notifications:
+  slack:
+    secure: fuRX1UPkbylxNZEe/ijLu0qbxnO1OLI7P1moGykzSuE9PEtKypy3lgV2GUNWnxP9BSHZ24lgH9mFmIHFqGTcg/LaFz7D1BFJowocv5Ays1LJxJJb+VxHI3AejkdbcwbhNuxybYAi1LbmMFrkdW+lGGtinYBHRjqcMyVt/JG0g3xW0WtohtoKEDY32ILiNZKmCcsTJKCT8q/tvrrO/eNDlSrBeN02srNKi4NLp1uiVIwJP1+QBywRJgjhIHKo5d/HVUI5T1bLUZC78Qkifn+ea4cldA5J6Osun0nQ2HaHVfklOtnNSdQYa74ZAOkLdJUgTi8w8HH4zZtk7RtLDTYKSpoKoIARWQtuGW1OsPKgZuiw1ozG0FpvNqVTGOlK3lIwDomDYegYgDLm5c/GAjRNufxVnwkb1yX9BLV2aluzehTfAkD/4JTrIVqdiWL9rKZAYnjT981N2hzKwzHQwPsjt47ib4jfa4tGNZ++9cAt4AyBNqkLe8twupAW9fDNG3z1AjhB8xUwbgg1SlHOlD/nVolyMhc+LcmYPS2h7cCOR5prNPXBhyQeshRIkcXoxpvBYcVaTsSJZK9AKAWw32k+uhTZUVqgfbMsxM/Fm0rPtpoQySIMuOzPCyrBIx4DKHFjChg1w7uRQDrAO9JORroN0mbzFXEX2gqLkfpbN7TbdoQ=
