@@ -15,6 +15,12 @@ CELERY_RESULT_SERIALIZER = 'json'
 
 
 CELERYBEAT_SCHEDULE = {
+    'Proxy | Execute Speed Test': {
+        'task': 'proxy.tasks.speed.SpeedTestTask',
+        'schedule': crontab(
+            minute='*/15',
+        )
+    },
 }
 
 
