@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load pipeline %}<!DOCTYPE html>
 <!--
            __                             _                         __       
     ____  / /___      ______ __________  (_)___  ____ _ ____  _____/ /_______
@@ -10,6 +10,10 @@
 -->
 <html>
   <head>
+    {% stylesheet 'vendor' %}
+    {% stylesheet 'main' %}
+    {% javascript 'vendor' %}
+    {% javascript 'main' %}
   </head>
   <body>
     {% include '_partials/_header.html' %}
