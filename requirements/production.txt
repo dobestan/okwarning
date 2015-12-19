@@ -1,4 +1,4 @@
-Django==1.9
+Django
 dj-database-url
 psycopg2
 gunicorn
@@ -8,5 +8,3 @@ celery
 flower
 redis
 django-pipeline
--e git+https://github.com/jschneier/django-storages-redux.git@47f373ef6f18e467844aa67b06cb4736d9cad958#egg=django_storages_redux-master
-boto
