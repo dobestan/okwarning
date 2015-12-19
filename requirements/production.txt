@@ -4,3 +4,6 @@ psycopg2
 gunicorn
 honcho
 requests
+celery
+flower
+redis
