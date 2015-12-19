@@ -23,3 +23,11 @@ clean_migrations:
 test:
 	flake8 okwarning/
 	okwarning/manage.py test okwarning/ -v 2
+
+
+# target: collectstatic - manages all static files including scss, es6 compile and django collectstatic
+collectstatic:
+	grunt bowercopy
+	grunt compass
+	grunt browserify
+	okwarning/manage.py collectstatic --noinput

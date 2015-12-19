@@ -7,11 +7,15 @@ install:
 - pip install -r requirements.txt
 - pip install -r requirements/development.txt
 - pip install coveralls
+- gem install compass
+- npm install
+- npm install -g grunt-cli bower
 before_script:
 - psql -c 'CREATE DATABASE okwarning;' -U postgres
 script:
 - make migrate
 - make test
+- make collectstatic
 after_success:
 - coveralls
 notifications:
