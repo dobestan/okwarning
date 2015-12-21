@@ -19,7 +19,7 @@ urlpatterns = [
 
     url(r'^api/', include([
         url(r'^history/', include([
-            url(r'^$', HistoryCreateAPIView.as_view(), name='create'),
+            url(r'^$', HistoryListCreateAPIView.as_view(), name='list-create'),
         ], namespace='history')),
     ], namespace='api')),
 ]

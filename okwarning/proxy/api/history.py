@@ -1,7 +1,11 @@
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import ListCreateAPIView
 
+from proxy.models import History
 from proxy.serializers import HistoryModelSerializer
 
 
-class HistoryCreateAPIView(CreateAPIView):
+class HistoryListCreateAPIView(ListCreateAPIView):
     serializer_class = HistoryModelSerializer
+
+    def get_queryset(self):
+        return History.objects.order_by().distinct('url', )
