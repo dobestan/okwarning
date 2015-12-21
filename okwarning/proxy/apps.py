@@ -5,4 +5,4 @@ class ProxyAppConfig(AppConfig):
     name = 'proxy'
 
     def ready(self):
-        pass
+        from .signals.pre_save import pre_save_history
