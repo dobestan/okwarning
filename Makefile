@@ -30,4 +30,4 @@ collectstatic:
 	grunt bowercopy
 	grunt compass
 	grunt browserify
-	okwarning/manage.py collectstatic --noinput
+	# okwarning/manage.py collectstatic --noinput
