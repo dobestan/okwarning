@@ -2,4 +2,50 @@
 
 
 {% block content %}
+
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>사이트 분야</th>
+          <th>담당기관</th>
+          <th>전화번호</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for category in categories %}
+          {% for agency in category.agencies %}
+            <tr>
+              {% if forloop.counter == 1 %}
+                <td rowspan='{{ category.agencies|length }}'>{{ category.name }}</td>
+              {% endif %}
+              <td>{{ agency.name }}</td>
+              <td>{{ agency.contact }}</td>
+            </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>정보내용</th>
+          <th>전화번호</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for objection in objections %}
+          <tr>
+            <td>{{ objection.content }}</td>
+            <td>{{ objection.contact }}</td>
+          </tr>
+        {% endfor %}
+        <tr>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 {% endblock %}
